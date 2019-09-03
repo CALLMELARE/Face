@@ -15,14 +15,25 @@ class Upload extends Component {
 
     upload = () => {
         const reqdata = new FormData();
-        reqdata.append('api_key', Api.api_key);
-        reqdata.append('api_secret', Api.api_secret);
-        reqdata.append('image_file', this.fileInput.current.files[0]);
+        // reqdata.append('api_key', Api.api_key);
+        // reqdata.append('api_secret', Api.api_secret);
+        // reqdata.append('image_file', this.fileInput.current.files[0]);
         // reqdata.append('return_landmark', 2);
-        reqdata.append('return_attributes', Api.return_attributes);
+        // reqdata.append('return_attributes', Api.return_attributes);
         // reqdata.append('beauty_score_min', 0);
         // reqdata.append('beauty_score_max', 100);
-        fetch('https://api-cn.faceplusplus.com/facepp/v3/detect', {
+        reqdata.append('file', this.fileInput.current.files[0]);
+        // fetch('https://api-cn.faceplusplus.com/facepp/v3/detect', {
+        //     method: 'POST',
+        //     body: reqdata,
+        // }).then(function (response) {
+        //     return response.json();
+        // }).then(data => {
+        //     this.setState({
+        //         responseData: data,
+        //     })
+        // }).catch(e => console.log('错误码:', e))
+        fetch('https://xuegong.twtstudio.com/api/uploadPic', {
             method: 'POST',
             body: reqdata,
         }).then(function (response) {
